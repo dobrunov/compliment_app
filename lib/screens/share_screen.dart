@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:screenshot/screenshot.dart';
 
-import '../constants/constants.dart';
 import '../models/compliment_model.dart';
+import '../styles/colors.dart';
+import '../styles/constants.dart';
 import '../widgets/compliment_card.dart';
 import '../widgets/share_button.dart';
 
@@ -32,7 +33,7 @@ class _ShareScreenState extends State<ShareScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFFE8EBFA),
+      backgroundColor: AppColors.backgroundColor,
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,

@@ -9,6 +9,7 @@ import 'package:image_gallery_saver/image_gallery_saver.dart';
 import 'package:permission_handler/permission_handler.dart';
 
 import '../models/compliment_model.dart';
+import '../styles/colors.dart';
 import 'compliment_card.dart';
 
 class ShareButton extends StatelessWidget {
@@ -24,7 +25,14 @@ class ShareButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
-      child: const Text('SHARE'),
+      child: const Text(
+        'SHARE',
+        style: const TextStyle(
+          color: AppColors.appButtonTextColor,
+          fontSize: 16.0,
+          fontWeight: FontWeight.bold,
+        ),
+      ),
       style: ElevatedButton.styleFrom(
         fixedSize: const Size(100, 40),
         shape: RoundedRectangleBorder(

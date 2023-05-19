@@ -3,8 +3,9 @@ import 'dart:convert';
 import 'package:flutter/services.dart';
 
 import '../screens/share_screen.dart';
-import '../constants/constants.dart';
 import '../models/compliment_model.dart';
+import '../styles/colors.dart';
+import '../styles/constants.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -38,7 +39,7 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFFE8EBFA),
+      backgroundColor: AppColors.backgroundColor,
       body: SafeArea(
         child: Column(
           children: [
@@ -47,7 +48,11 @@ class _HomeScreenState extends State<HomeScreen> {
               child: Center(
                 child: Text(
                   compliments.length.toString(),
-                  style: const TextStyle(fontSize: 58.0, fontWeight: FontWeight.bold),
+                  style: const TextStyle(
+                    color: AppColors.counterColorText,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 58.0,
+                  ),
                 ),
               ),
             ),
@@ -56,7 +61,11 @@ class _HomeScreenState extends State<HomeScreen> {
               child: Center(
                 child: Text(
                   'COMPLIMENTS',
-                  style: const TextStyle(fontSize: 18.0, fontWeight: FontWeight.bold),
+                  style: const TextStyle(
+                    color: AppColors.appTextColor,
+                    fontSize: 18.0,
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
               ),
             ),
@@ -67,7 +76,14 @@ class _HomeScreenState extends State<HomeScreen> {
                   onPressed: () {
                     Navigator.pushNamed(context, '/new-comp-screen');
                   },
-                  child: const Text('CREATE'),
+                  child: const Text(
+                    'CREATE',
+                    style: const TextStyle(
+                      color: AppColors.appButtonTextColor,
+                      fontSize: 16.0,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
                   style: ElevatedButton.styleFrom(
                     fixedSize: const Size(100, 40),
                     shape: RoundedRectangleBorder(
@@ -78,7 +94,14 @@ class _HomeScreenState extends State<HomeScreen> {
               ],
             ),
             gap10,
-            const Text('OR CHOOSE'),
+            const Text(
+              'OR CHOOSE',
+              style: const TextStyle(
+                color: AppColors.appTextColor,
+                fontSize: 16.0,
+                fontWeight: FontWeight.normal,
+              ),
+            ),
             gap10,
             Expanded(
               child: ListView.builder(
@@ -95,7 +118,11 @@ class _HomeScreenState extends State<HomeScreen> {
                         child: Center(
                           child: Text(
                             "'" + compliments[index].description + "'",
-                            style: TextStyle(fontSize: 14.0, fontStyle: FontStyle.italic),
+                            style: TextStyle(
+                              color: AppColors.appTextColor,
+                              fontSize: 14.0,
+                              fontStyle: FontStyle.italic,
+                            ),
                           ),
                         ),
                       ),
@@ -112,7 +139,14 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
             gap10,
             ElevatedButton(
-              child: const Text('SHUFFLE'),
+              child: const Text(
+                'SHUFFLE',
+                style: const TextStyle(
+                  color: AppColors.appButtonTextColor,
+                  fontSize: 16.0,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
               style: ElevatedButton.styleFrom(
                 fixedSize: const Size(100, 40),
                 shape: RoundedRectangleBorder(

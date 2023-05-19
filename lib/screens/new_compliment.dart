@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../models/compliment_model.dart';
+import '../styles/colors.dart';
 
 class NewCompliment extends StatefulWidget {
   const NewCompliment({Key? key}) : super(key: key);
@@ -23,7 +24,7 @@ class _NewComplimentState extends State<NewCompliment> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFFE8EBFA),
+      backgroundColor: AppColors.backgroundColor,
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -32,14 +33,15 @@ class _NewComplimentState extends State<NewCompliment> {
               margin: EdgeInsets.all(20),
               padding: EdgeInsets.all(10),
               decoration: BoxDecoration(
-                color: Colors.white,
-                border: Border.all(color: const Color(0xFFC4CBED), width: 1.0),
+                color: AppColors.textFieldBackgroundColor,
+                border: Border.all(color: AppColors.textFieldBorderColor, width: 1.0),
                 borderRadius: BorderRadius.all(Radius.circular(20.0)),
               ),
               child: TextField(
                 controller: _newCompliment,
                 decoration: InputDecoration(
                   labelText: 'Enter your compliment',
+                  labelStyle: TextStyle(color: AppColors.textFieldTextLabelColor),
                   border: InputBorder.none,
                 ),
               ),
@@ -52,7 +54,14 @@ class _NewComplimentState extends State<NewCompliment> {
                   arguments: Compliment(description: _newCompliment.text),
                 );
               },
-              child: const Text('OK'),
+              child: const Text(
+                'OK',
+                style: const TextStyle(
+                  color: AppColors.appButtonTextColor,
+                  fontSize: 16.0,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
               style: ElevatedButton.styleFrom(
                 fixedSize: const Size(100, 40),
                 shape: RoundedRectangleBorder(
