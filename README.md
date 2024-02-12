@@ -1,6 +1,6 @@
 # compliment_app
 
-Flutter application for creating cards with compliments
+Flutter application for creating cards with compliments, and share it in social media
 
 ## Version 0.0.1 (2023-05-18)
  
