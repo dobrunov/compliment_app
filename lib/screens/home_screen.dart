@@ -2,10 +2,11 @@ import 'package:flutter/material.dart';
 import 'dart:convert';
 import 'package:flutter/services.dart';
 
+import '../const.dart';
 import '../screens/share_screen.dart';
 import '../models/compliment_model.dart';
+import '../styles/app_dimens.dart';
 import '../styles/colors.dart';
-import '../styles/constants.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -20,7 +21,7 @@ class _HomeScreenState extends State<HomeScreen> {
   List<Compliment> compliments = [];
 
   Future<void> readJsonFile() async {
-    final String response = await rootBundle.loadString('assets/compliments.json');
+    final String response = await rootBundle.loadString(complimentJson);
     final data = await json.decode(response);
 
     var list = data["items"] as List<dynamic>;
@@ -93,7 +94,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
               ],
             ),
-            gap10,
+            SizedBoxHeight10,
             const Text(
               'OR CHOOSE',
               style: const TextStyle(
@@ -102,7 +103,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 fontWeight: FontWeight.normal,
               ),
             ),
-            gap10,
+            SizedBoxHeight10,
             Expanded(
               child: ListView.builder(
                 itemCount: compliments.length,
@@ -137,7 +138,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 },
               ),
             ),
-            gap10,
+            SizedBoxHeight10,
             ElevatedButton(
               child: const Text(
                 'SHUFFLE',
@@ -158,7 +159,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 setState(() {});
               },
             ),
-            gap10,
+            SizedBoxHeight10,
           ],
         ),
       ),

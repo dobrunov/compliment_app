@@ -1,0 +1,1 @@
+const complimentJson = 'assets/compliments.json';
