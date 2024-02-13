@@ -63,6 +63,7 @@ class _NewComplimentState extends State<NewCompliment> {
                 ),
               ),
               style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.pink,
                 fixedSize: const Size(100, 40),
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(20),
