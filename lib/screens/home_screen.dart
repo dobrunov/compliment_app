@@ -1,12 +1,15 @@
-import 'package:flutter/material.dart';
 import 'dart:convert';
+
+import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 import '../const.dart';
-import '../screens/share_screen.dart';
 import '../models/compliment_model.dart';
+import '../screens/share_screen.dart';
 import '../styles/app_dimens.dart';
 import '../styles/colors.dart';
+import '../widgets/compliment_button.dart';
+import '../widgets/compliments_summ.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -44,54 +47,17 @@ class _HomeScreenState extends State<HomeScreen> {
       body: SafeArea(
         child: Column(
           children: [
-            Padding(
-              padding: const EdgeInsets.only(top: 20.0),
-              child: Center(
-                child: Text(
-                  compliments.length.toString(),
-                  style: const TextStyle(
-                    color: AppColors.counterColorText,
-                    fontWeight: FontWeight.bold,
-                    fontSize: 58.0,
-                  ),
-                ),
-              ),
-            ),
-            SizedBox(
-              height: 40,
-              child: Center(
-                child: Text(
-                  'COMPLIMENTS',
-                  style: const TextStyle(
-                    color: AppColors.appTextColor,
-                    fontSize: 18.0,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-              ),
-            ),
+            ComplimentsSumm(compliments: compliments),
+            //
+
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                ElevatedButton(
+                ComplimentButton(
+                  text: 'CREATE',
                   onPressed: () {
                     Navigator.pushNamed(context, '/new-comp-screen');
                   },
-                  child: const Text(
-                    'CREATE',
-                    style: const TextStyle(
-                      color: AppColors.appButtonTextColor,
-                      fontSize: 16.0,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.pink,
-                    fixedSize: const Size(120, 40),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(20),
-                    ),
-                  ),
                 ),
               ],
             ),
@@ -140,22 +106,8 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
             ),
             SizedBoxHeight10,
-            ElevatedButton(
-              child: const Text(
-                'SHUFFLE',
-                style: const TextStyle(
-                  color: AppColors.appButtonTextColor,
-                  fontSize: 16.0,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-              style: ElevatedButton.styleFrom(
-                backgroundColor: Colors.pink,
-                fixedSize: const Size(120, 40),
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(20),
-                ),
-              ),
+            ComplimentButton(
+              text: 'SHUFFLE',
               onPressed: () {
                 compliments.shuffle();
                 setState(() {});
@@ -168,3 +120,7 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 }
+
+
+
+
