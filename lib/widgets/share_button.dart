@@ -34,7 +34,8 @@ class ShareButton extends StatelessWidget {
         ),
       ),
       style: ElevatedButton.styleFrom(
-        fixedSize: const Size(100, 40),
+        backgroundColor: Colors.pink,
+        fixedSize: const Size(120, 40),
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(20),
         ),
