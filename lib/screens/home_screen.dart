@@ -47,9 +47,9 @@ class _HomeScreenState extends State<HomeScreen> {
       body: SafeArea(
         child: Column(
           children: [
+            ///
             ComplimentsSumm(compliments: compliments),
-            //
-
+            ///
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
@@ -61,7 +61,9 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
               ],
             ),
+            ///
             SizedBoxHeight10,
+            ///
             const Text(
               'OR CHOOSE',
               style: const TextStyle(
@@ -70,7 +72,9 @@ class _HomeScreenState extends State<HomeScreen> {
                 fontWeight: FontWeight.normal,
               ),
             ),
+            ///
             SizedBoxHeight10,
+            ///
             Expanded(
               child: ListView.builder(
                 itemCount: compliments.length,
@@ -105,7 +109,9 @@ class _HomeScreenState extends State<HomeScreen> {
                 },
               ),
             ),
+            ///
             SizedBoxHeight10,
+            ///
             ComplimentButton(
               text: 'SHUFFLE',
               onPressed: () {
@@ -113,6 +119,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 setState(() {});
               },
             ),
+            ///
             SizedBoxHeight10,
           ],
         ),

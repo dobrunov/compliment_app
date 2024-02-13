@@ -14,7 +14,7 @@ class ComplimentsSumm extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(top: 20.0),
+      padding: const EdgeInsets.only(top: 10.0, bottom: 10),
       child: Center(
         child: Column(
           children: [
@@ -27,7 +27,7 @@ class ComplimentsSumm extends StatelessWidget {
               ),
             ),
             SizedBox(
-              height: 40,
+              height: 30,
               child: Center(
                 child: Text(
                   'COMPLIMENTS',

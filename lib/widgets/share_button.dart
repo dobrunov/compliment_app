@@ -1,15 +1,15 @@
-import 'package:flutter/material.dart';
-import 'dart:typed_data';
 import 'dart:io';
-import 'package:path_provider/path_provider.dart';
-import 'package:screenshot/screenshot.dart';
+import 'dart:typed_data';
 
-import 'package:share_plus/share_plus.dart';
+import 'package:flutter/material.dart';
 import 'package:image_gallery_saver/image_gallery_saver.dart';
+import 'package:path_provider/path_provider.dart';
 import 'package:permission_handler/permission_handler.dart';
+import 'package:screenshot/screenshot.dart';
+import 'package:share_plus/share_plus.dart';
 
 import '../models/compliment_model.dart';
-import '../styles/colors.dart';
+import 'compliment_button.dart';
 import 'compliment_card.dart';
 
 class ShareButton extends StatelessWidget {
@@ -24,24 +24,14 @@ class ShareButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ElevatedButton(
-      child: const Text(
-        'SHARE',
-        style: const TextStyle(
-          color: AppColors.appButtonTextColor,
-          fontSize: 16.0,
-          fontWeight: FontWeight.bold,
-        ),
-      ),
-      style: ElevatedButton.styleFrom(
-        backgroundColor: Colors.pink,
-        fixedSize: const Size(120, 40),
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(20),
-        ),
-      ),
+    return ComplimentButton(
+      text: 'SHARE',
       onPressed: () async {
-        final image = await controller.captureFromWidget(ComplimentCard(compliment: compliment));
+        final image = await controller.captureFromWidget(
+          ComplimentCard(
+            compliment: compliment,
+          ),
+        );
         if (image.isEmpty) return;
 
         await saveImage(image);

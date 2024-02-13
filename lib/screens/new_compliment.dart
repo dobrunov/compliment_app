@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../models/compliment_model.dart';
 import '../styles/colors.dart';
+import '../widgets/compliment_button.dart';
 
 class NewCompliment extends StatefulWidget {
   const NewCompliment({Key? key}) : super(key: key);
@@ -46,7 +47,8 @@ class _NewComplimentState extends State<NewCompliment> {
                 ),
               ),
             ),
-            ElevatedButton(
+            ComplimentButton(
+              text: 'OK',
               onPressed: () {
                 Navigator.pushNamed(
                   context,
@@ -54,21 +56,6 @@ class _NewComplimentState extends State<NewCompliment> {
                   arguments: Compliment(description: _newCompliment.text),
                 );
               },
-              child: const Text(
-                'OK',
-                style: const TextStyle(
-                  color: AppColors.appButtonTextColor,
-                  fontSize: 16.0,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-              style: ElevatedButton.styleFrom(
-                backgroundColor: Colors.pink,
-                fixedSize: const Size(100, 40),
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(20),
-                ),
-              ),
             ),
           ],
         ),
