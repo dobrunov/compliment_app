@@ -12,10 +12,10 @@ class ComplimentCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       padding: const EdgeInsets.all(5.0),
-      width: 300,
-      height: 300,
+      width: MediaQuery.of(context).size.width*0.8,
+      height: MediaQuery.of(context).size.width*0.8,
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.all(Radius.circular(20)),
+        borderRadius: BorderRadius.all(Radius.circular(40)),
         color: AppColors.cardColorBackground,
       ),
       child: Column(

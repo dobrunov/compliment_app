@@ -34,20 +34,30 @@ class _ShareScreenState extends State<ShareScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColors.backgroundColor,
+      appBar: AppBar(
+        backgroundColor: AppColors.backgroundColor,
+      ),
       body: Center(
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.start,
           children: [
-            SizedBoxHeight25,
+            //
             Screenshot(
               controller: screenshotController,
-              child: ComplimentCard(compliment: compliment),
+              child: Padding(
+                padding: const EdgeInsets.only(top: 100.0),
+                child: ComplimentCard(compliment: compliment),
+              ),
             ),
-            SizedBoxHeight25,
-            ShareButton(
-              compliment: compliment,
-              controller: screenshotController,
+            //
+            Padding(
+              padding: const EdgeInsets.only(top: 25.0),
+              child: ShareButton(
+                compliment: compliment,
+                controller: screenshotController,
+              ),
             ),
+
           ],
         ),
       ),

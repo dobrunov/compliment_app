@@ -22,9 +22,9 @@ class ComplimentButton extends StatelessWidget {
       ),
       style: ElevatedButton.styleFrom(
         backgroundColor: Colors.pink,
-        fixedSize: const Size(140, 40),
+        fixedSize: const Size(180, 50),
         shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(20),
+          borderRadius: BorderRadius.circular(40),
         ),
       ),
     );
