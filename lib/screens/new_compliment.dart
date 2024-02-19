@@ -38,8 +38,8 @@ class _NewComplimentState extends State<NewCompliment> {
               child: Container(
                 margin: EdgeInsets.all(20),
                 padding: EdgeInsets.all(10),
-                width: MediaQuery.of(context).size.width*0.8,
-      height: MediaQuery.of(context).size.width*0.8,
+                width: MediaQuery.of(context).size.width * 0.8,
+                height: MediaQuery.of(context).size.width * 0.8,
                 decoration: BoxDecoration(
                   color: AppColors.textFieldBackgroundColor,
                   border: Border.all(color: AppColors.textFieldBorderColor, width: 1.0),

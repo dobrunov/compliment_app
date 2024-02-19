@@ -12,8 +12,8 @@ class ComplimentCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       padding: const EdgeInsets.all(5.0),
-      width: MediaQuery.of(context).size.width*0.8,
-      height: MediaQuery.of(context).size.width*0.8,
+      width: 300,
+      height: 300,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.all(Radius.circular(40)),
         color: AppColors.cardColorBackground,
@@ -30,7 +30,7 @@ class ComplimentCard extends StatelessWidget {
                 style: TextStyle(
                   color: AppColors.cardColorText,
                   fontWeight: FontWeight.bold,
-                  fontSize: 18.0,
+                  fontSize: 24.0,
                 ),
               ),
             ),
