@@ -2,7 +2,11 @@
 
 Flutter application for creating cards with compliments, and share it in social media
 
-## Version 0.0.1 (2023-05-18)
+### Version 0.0.1 (2023-05-18)
+Starter version
+
+### Version 0.0.2 (2024-11-10)
+Added Riverpod and GoRouter
  
 ![Screenshot_75](https://github.com/dobrunov/compliment_app/assets/98588940/16617b2b-fa49-4aba-8414-a79a4889db1e)
 ![Screenshot_76](https://github.com/dobrunov/compliment_app/assets/98588940/5dd0f5ba-ed7f-4bd5-ba11-fa8f49b93547)
