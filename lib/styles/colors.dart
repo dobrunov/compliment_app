@@ -17,9 +17,5 @@ class AppColors {
   static const Color textFieldBorderColor = Color(0xFFC4CBED);
   static const Color textFieldTextLabelColor = Color(0xFFC4CBED);
 
-  static const Color primaryColor = Color(0xFFFFFFFF);
-  static const Color accentColor = Color(0xFFFFFFFF);
-  static const Color textColor = Color(0xFFFFFFFF);
-
   static const Color backgroundColor = Color(0xFFE8EBFA);
 }

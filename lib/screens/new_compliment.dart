@@ -1,5 +1,8 @@
+import 'package:compliments_app/screens/routes.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
+import '../main.dart';
 import '../models/compliment_model.dart';
 import '../styles/colors.dart';
 import '../widgets/compliment_button.dart';
@@ -7,14 +10,13 @@ import '../widgets/compliment_button.dart';
 class NewCompliment extends StatefulWidget {
   const NewCompliment({Key? key}) : super(key: key);
 
-  static const String routeName = '/new-comp-screen';
-
   @override
   _NewComplimentState createState() => _NewComplimentState();
 }
 
 class _NewComplimentState extends State<NewCompliment> {
   final TextEditingController _newCompliment = TextEditingController();
+  Compliment compliment = Compliment(description: '');
 
   @override
   void dispose() {
@@ -24,11 +26,12 @@ class _NewComplimentState extends State<NewCompliment> {
 
   @override
   Widget build(BuildContext context) {
+    final screenWidth = MediaQuery.sizeOf(context).width;
+    final screenHeight = MediaQuery.sizeOf(context).height;
+
     return Scaffold(
       backgroundColor: AppColors.backgroundColor,
-      appBar: AppBar(
-        backgroundColor: AppColors.backgroundColor,
-      ),
+      appBar: AppBar(backgroundColor: AppColors.backgroundColor),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
@@ -38,8 +41,8 @@ class _NewComplimentState extends State<NewCompliment> {
               child: Container(
                 margin: EdgeInsets.all(20),
                 padding: EdgeInsets.all(10),
-                width: MediaQuery.of(context).size.width * 0.8,
-                height: MediaQuery.of(context).size.width * 0.8,
+                width: screenWidth * 0.8,
+                height: screenHeight * 0.4,
                 decoration: BoxDecoration(
                   color: AppColors.textFieldBackgroundColor,
                   border: Border.all(color: AppColors.textFieldBorderColor, width: 1.0),
@@ -58,11 +61,8 @@ class _NewComplimentState extends State<NewCompliment> {
             ComplimentButton(
               text: 'OK',
               onPressed: () {
-                Navigator.pushNamed(
-                  context,
-                  '/share-screen',
-                  arguments: Compliment(description: _newCompliment.text),
-                );
+                compliment.description = _newCompliment.text;
+                context.push(ScreenRoutes.share, extra: compliment);
               },
             ),
           ],

@@ -9,24 +9,19 @@ import '../widgets/share_button.dart';
 
 //
 class ShareScreen extends StatefulWidget {
-  const ShareScreen({
-    Key? key,
-  }) : super(key: key);
+  final Compliment compliment;
 
-  static const String routeName = '/share-screen';
+  ShareScreen({Key? key, required this.compliment}) : super(key: key);
 
   @override
   _ShareScreenState createState() => _ShareScreenState();
 }
 
 class _ShareScreenState extends State<ShareScreen> {
-  late Compliment compliment;
-
   final screenshotController = ScreenshotController();
 
   @override
   void didChangeDependencies() {
-    compliment = ModalRoute.of(context)?.settings.arguments as Compliment;
     super.didChangeDependencies();
   }
 
@@ -41,23 +36,20 @@ class _ShareScreenState extends State<ShareScreen> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
-            //
             Screenshot(
               controller: screenshotController,
               child: Padding(
                 padding: const EdgeInsets.only(top: 100.0),
-                child: ComplimentCard(compliment: compliment),
+                child: ComplimentCard(compliment: widget.compliment),
               ),
             ),
-            //
             Padding(
               padding: const EdgeInsets.only(top: 25.0),
               child: ShareButton(
-                compliment: compliment,
+                compliment: widget.compliment,
                 controller: screenshotController,
               ),
             ),
-
           ],
         ),
       ),

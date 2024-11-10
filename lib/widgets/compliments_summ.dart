@@ -4,10 +4,7 @@ import '../models/compliment_model.dart';
 import '../styles/colors.dart';
 
 class ComplimentsSumm extends StatelessWidget {
-  const ComplimentsSumm({
-    Key? key,
-    required this.compliments,
-  }) : super(key: key);
+  const ComplimentsSumm({Key? key, required this.compliments}) : super(key: key);
 
   final List<Compliment> compliments;
 

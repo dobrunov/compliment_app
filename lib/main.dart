@@ -1,30 +1,46 @@
+import 'package:compliments_app/models/compliment_model.dart';
+import 'package:compliments_app/screens/routes.dart';
 import 'package:flutter/material.dart';
-
-import '../screens/new_compliment.dart';
-import '../screens/home_screen.dart';
-import '../screens/share_screen.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
+import 'screens/home_screen.dart';
+import 'screens/share_screen.dart';
+import 'screens/new_compliment.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(ProviderScope(child: MyApp()));
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+  MyApp({Key? key}) : super(key: key);
+
+  final GoRouter _router = GoRouter(
+    initialLocation: ScreenRoutes.home,
+    routes: [
+      GoRoute(
+        path: ScreenRoutes.home,
+        builder: (context, state) => HomeScreen(),
+      ),
+      GoRoute(
+        path: ScreenRoutes.newCompliment,
+        builder: (context, state) => const NewCompliment(),
+      ),
+      GoRoute(
+        path: ScreenRoutes.share,
+        builder: (context, state) {
+          final compliment = state.extra as Compliment;
+          return ShareScreen(compliment: compliment);
+        },
+      ),
+    ],
+  );
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Compliments',
-      theme: ThemeData(
-        primarySwatch: Colors.pink,
-      ),
-      initialRoute: '/',
-      routes: {
-        '/': (context) => const HomeScreen(),
-        HomeScreen.routeName: (context) => const HomeScreen(),
-        NewCompliment.routeName: (context) => const NewCompliment(),
-        ShareScreen.routeName: (context) => ShareScreen(),
-      },
+    return MaterialApp.router(
+      debugShowCheckedModeBanner: false,
+      routerConfig: _router,
+      title: 'Compliments App',
     );
   }
 }
