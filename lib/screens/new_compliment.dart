@@ -1,8 +1,7 @@
-import 'package:compliments_app/screens/routes.dart';
+import 'package:compliments_app/router/screen_routes.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
-import '../main.dart';
 import '../models/compliment_model.dart';
 import '../styles/colors.dart';
 import '../widgets/compliment_button.dart';

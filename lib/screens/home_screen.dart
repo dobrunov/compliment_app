@@ -1,4 +1,4 @@
-import 'package:compliments_app/screens/routes.dart';
+import 'package:compliments_app/router/screen_routes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
